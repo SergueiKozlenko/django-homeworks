@@ -1,5 +1,4 @@
 import os
-import json
 from django.http import HttpResponse
 from django.shortcuts import render, reverse
 from datetime import datetime
@@ -36,5 +35,4 @@ def workdir_view(request):
     # который возвращает список файлов в рабочей 
     # директории
     listdir = os.listdir(path=f"{os.getcwd()}")
-    your_list_as_json = json.dumps(listdir)
-    return HttpResponse(your_list_as_json)
+    return HttpResponse('<br>'.join(listdir))
