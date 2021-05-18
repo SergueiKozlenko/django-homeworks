@@ -17,8 +17,35 @@
       <div class="row">
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
-        
-        <!-- Ваша логика -->
+
+        <table>
+          <tr>
+            {% for header in headers %}
+            <th>{{ header }}</th>
+            {% endfor %}
+          </tr>
+            {% for row in data %}
+          <tr>
+              {% for value in row %}
+              <td style="
+                  {% if forloop.counter > 1 and forloop.counter < 14 %}
+                    {% if value < 0 %}background-color:#00FA9A{% endif %}
+                    {% if value > 1 and value <= 2 %}background-color:#FBC8C9{% endif %}
+                    {% if value > 2 and value <= 5 %}background-color:#F6767A{% endif %}
+                    {% if value > 5 %}background-color:#FB0008{% endif %}
+                  {% else %} {% if forloop.counter == 14 %}background-color:#D3D3D3{% endif %}
+                  {% endif %}">
+                  {% if forloop.counter > 1 %}
+                     {{ value|default_if_none:"-"|stringformat:".2f" }}
+                  {% else %}
+                     {{ value }}
+                  {% endif %}
+
+              </td>
+              {% endfor %}
+          </tr>
+               {% endfor %}
+        </table>
 
         </div>
       </div>
