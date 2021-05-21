@@ -9,5 +9,5 @@ register_converter(DataConverter, 'dtc')
 urlpatterns = [
     path('', file_list, name='file_list'),
     path('<dtc:date>/', file_list, name='file_list'),
-    path('file/<str:name>', file_content, name='file_content')
+    path('file/<str:sort>', file_content, name='file_content')
 ]

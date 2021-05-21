@@ -52,8 +52,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'netology_import_phones',
-        'USER': 'genes',
-        'PASSWORD': 'genes',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
