@@ -9,11 +9,24 @@
         </div>
 
         <div class="sort-block">
-            {# Здесь должен быть раздел с сортировкой #}
+            Сортировать по:
+            <a href="/catalog?sort=name">названию</a>
+            <a href="/catalog?sort=min_price">начиная с дешевых</a>
+            <a href="/catalog?sort=max_price">начиная с дорогих</a>
         </div>
 
-        <div class="content">
-            {# Здесь должен отображаться каталог с телефонами #}
-        </div>
+
+
+        <table width=100%>
+        {% for phone in phones %}
+          {% cycle 'row' '' as row silent %}
+          {% if row %}<tr>{% endif %}
+            <td width=50% valign="top">
+                {% include 'product_card.html' with phone=phone %}
+            </td>
+          {% if not row %}</tr>{% endif %}
+        {% endfor %}
+        </table>
+
     </div>
 {% endblock %}

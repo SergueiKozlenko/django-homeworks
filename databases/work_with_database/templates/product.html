@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Телефон{% endblock %}
+{% block title %}{{ phone.slug }}{% endblock %}
 {% block content %}
     <div class="container">
         <div class="header">
-            <h1>Телефон</h1>
+            <h1>{{ phone.name }}</h1>
         </div>
         <div class="content">
-
+        <ul>
+               {% for object in phone %}
+                   <h1>{{ object.name }}</h1>
+                   <img src="{{ object.image }}">
+                   <li>Цена: {{ object.price }}р.</li>
+                   <li>Дата выхода: {{ object.release_date }}</li>
+                   <li>LTE: {{ object.lte_exists|yesno:"Да,Нет,Нет данных" }}</li>
+                {% endfor %}
+        </ul>
         </div>
     </div>
 {% endblock %}

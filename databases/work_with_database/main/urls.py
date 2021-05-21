@@ -20,6 +20,8 @@ import phones.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('catalog/', phones.views.show_catalog),
-    path('catalog/<slug:slug>/', phones.views.show_product),
+    path('', phones.views.home_view, name='home_view'),
+    path('catalog/', phones.views.show_catalog, name='show_catalog'),
+    path('catalog/<slug:slug>/', phones.views.show_product, name='show_product'),
+    path('catalog<str:sort>', phones.views.show_catalog, name='show_catalog')
 ]
