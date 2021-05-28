@@ -22,5 +22,4 @@ class Command(BaseCommand):
                               release_date=line[4],
                               lte_exists=line[5]
                               )
-                print(line)
                 phone.save()
